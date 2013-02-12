@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
+
+        <style>
+            html,body{height:100%}
+            body{font:400 .9em Helvetica, Arial, sans-serif}
+
+            body,
+            #sidebar ul,
+            #sidebar li {margin:0; padding:0}
+            h1 small {color:#aaa; font-size: .6em}
+            table {
+                color:#333333;
+                border-width: 1px;
+                border-color: #eee;
+                border-collapse: collapse;
+            }
+            table th {
+                padding: 8px;
+                border: 1px solid #eee;
+                background-color: #fafafa;
+            }
+            table td {
+                padding: 8px;
+                border: 1px solid #eee;
+                background-color: #fff;
+            }
+
+            #sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 180px;
+                height: 100%;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+                background-color: #111
+            }
+
+            #sidebar a {
+              display:block;
+              padding: 10px;
+              color: #ccc;
+              text-decoration: none;
+              border-top: 1px solid #222;
+              border-bottom: 1px solid #000;
+              -webkit-transition: all .1s;
+            }
+            #sidebar a:hover{color:white; background-color:#161616}
+            #sidebar a:active{color:#0ef}
+
+            .top {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 35px;
+                color: white;
+                background: #111;
+                border-bottom: 1px solid #fff
+            }
+
+            .toggle {
+                margin: 8px 0 0 5px;
+                display:block;
+                width: 24px;
+                height: 4px;
+                background: transparent;
+                border-top: 4px solid #0ef;
+                border-bottom: 12px double #0ef;
+                box-shadow: 0 0 10px black;
+                -webkit-transition: all .5s;
+            }
+            .toggle:hover{border-color: deeppink}
+
+            #content {
+                position: relative;
+                overflow: hidden;
+                background-color: whiteSmoke;
+                box-shadow: 0 0 20px black
+            }
+            article section {
+                padding: 40px 10px 0;
+                text-shadow: 1px 1px 0 white
+            }
+        </style>
+
+        <title>jquery.touchbar.js | Touchable sidebar like on Facebook or Youtube!</title>
+    </head>
+
+    <body>
+        <aside id="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </aside>
+
+        <article id="content">
+            <header class="top"><a href="#" class="toggle"></a></header>
+
+            <section>
+                <h1>jquery.touchbar.js - <small>by yckart</small></h1>
+                <p>Cura dissaepserat spectent sive gentes animalibus effervescere. Locoque satus. Et secuit est sua os seductaque partim erat origo. Natus dixere. Sunt moderantum mortales dedit subdita terrenae piscibus prima. Locoque ventos limitibus. Aethera regio in rapidisque extendi silvas litem adsiduis fluminaque. Parte aetas postquam.</p>
+            </section>
+
+            <section>
+                <h2>Options</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>content</code></td>
+                            <td><code>"#content"</code></td>
+                            <td>The wrapper which contains the content.</td>
+                        </tr>
+                        <tr>
+                            <td><code>body</code></td>
+                            <td><code>document</code></td>
+                            <td>The element where touch-events are bound to.</td>
+                        </tr>
+                        <tr>
+                            <td><code>start</code></td>
+                            <td><code>40</code></td>
+                            <td>The value from where the animation should start, can even.</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation</code></td>
+                            <td><code>{}</code></td>
+                            <td>Can contain all jQuery/Zepto's default animate properties.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Example</h2>
+                <p>Open this page with your touch-device (or with Google Chrome and developer tools):</p>
+                <a href="http://yckart.github.com/jquery.touchbar.js"><img src="qr.png"></a>
+            </section>
+
+            <section>
+                <h2>License</h2>
+                <tt>
+                    <p>Copyright (c) 2012 Yannick Albert (<a href='http://yckart.com/'>http://yckart.com/</a>)</p>
+
+                    <p>Permission is hereby granted, free of charge, to any person obtaining a copy
+                    of this software and associated documentation files (the "Software"), to deal
+                    in the Software without restriction, including without limitation the rights
+                    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                    copies of the Software, and to permit persons to whom the Software is
+                    furnished to do so, subject to the following conditions:</p>
+
+                    <p>The above copyright notice and this permission notice shall be included in
+                    all copies or substantial portions of the Software.</p>
+
+                    <p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                    THE SOFTWARE.</p>
+                </tt>
+            </section>
+        </article>
+
+        <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+        <script src='jquery.touchbar.js'></script>
+        <script>
+            var sidebar = $('#sidebar'),
+                content = $('#content');
+
+            sidebar.touchbar({
+                onSlide: function(now){
+                    // sidebar.css({ opacity: 0.5 + Math.abs(0.5 * (now) / sidebar.width()) });
+                }
+            });
+
+            $('.toggle').click(function(e){
+                var isOpen = content.offset().left === 180;
+                sidebar.trigger(isOpen ? 'close' : 'open');
+
+                /*
+                sidebar.animate({
+                    opacity: isOpen ? 0.5 : 1
+                });
+                */
+                e.preventDefault();
+            });
+        </script>
+    </body>
+</html>
